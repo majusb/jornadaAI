@@ -1,4 +1,4 @@
-// Função numero aleatório
+// Função numero aleatorio
 function randomRange(min,max) {
     return Math.random() * (max - min) + min; 
 }
@@ -28,7 +28,7 @@ g(signalList = {}); {
     else return 0; //desativado
 };
 
-mutate(rate = 1); {
+mutate(rate = 0.2); {
     this.weightList = this. weightList.map(() => {
         return lerp(w, randomRange(-1, 1),rate)
     });
@@ -41,19 +41,19 @@ class RNA {
         this.score = 0;
 
         this.levelList = levelList.map ((l, i) => {
-        const inputSize = i === 0 ? inputAcount : levelList[i - 1]
+            const inputSize = i === 0 ? inputAcount : levelList[i - 1]
 
-        return new Arraya(l).fill().map(() => new Neuron(inputSize));
+        return new Array(l).fill().map(() => new Neuron(inputSize));
         });
     }
 
     compute(list = []){
-        for (let i = 0; i < this.levelList.lenght; i++) {
+        for (let i = 0; i < this.levelList.length; i++) {
             const tempList = []
 
-        for (const Neuron of this.levelList[i]) {
-                if (list.length !== Neuron.weightList.length) throw new Error("Entrada inválida");
-                tempList.push(Neuron.g(list))
+        for (const neuron of this.levelList[i]) {
+                if (list.length !== neuron.weightList.length) throw new Error("Entrada inválida");
+                tempList.push(neuron.g(list))
             }
             list = tempList;
         }
