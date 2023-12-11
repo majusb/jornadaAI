@@ -8,7 +8,7 @@ setInterval(() => {
     let total = 0;
 
     for (let i = 0; i < SAMPLES; i++) {
-        const inputs = new array[10].fill().map(() => Math.random());
+        const inputs = new Array[10].fill().map(() => Math.random());
         const[r] = rna.compute(inputs);
         total += r;        
     }
